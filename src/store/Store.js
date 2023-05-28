@@ -3,7 +3,7 @@ import { configureStore, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const fetchApiData = createAsyncThunk(
   'api/fetchApiData',
   async () => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+    const response = await fetch('http://localhost:3001/api/random_greeting');
     const data = await response.json();
     return data;
   },

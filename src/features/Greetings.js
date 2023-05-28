@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchApiData } from '../store/Store';
+import './Greetings.css';
 
 const Greetings = () => {
   const dispatch = useDispatch();
@@ -23,13 +24,19 @@ const Greetings = () => {
   if (apiStatus === 'failed') {
     return (
       <div>
-        Error:
+        A comerla toda:
         {apiError}
       </div>
     );
   }
 
-  return apiData.map((item) => <div key={item.id}>{item.name}</div>);
+  return (
+    <div className="container-button">
+      <button className="button" type="button" onClick={() => dispatch(fetchApiData())}>
+        {apiData.greeting}
+      </button>
+    </div>
+  );
 };
 
 export default Greetings;
