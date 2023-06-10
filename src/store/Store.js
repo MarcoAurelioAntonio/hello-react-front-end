@@ -3,9 +3,18 @@ import { configureStore, createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 export const fetchApiData = createAsyncThunk(
   'api/fetchApiData',
   async () => {
-    const response = await fetch('http://localhost:3001/api/random_greeting');
+    const response = await fetch('http://localhost:3000/api/random_greeting');
     const data = await response.json();
     return data;
+  },
+);
+
+export const putApiData = createAsyncThunk(
+  'api/putApiData',
+  async (data) => {
+    const response = await fetch('http://localhost:3000/api/random_greeting', { method: 'PUT', body: JSON.stringify(data) });
+    const dataResponse = await response.json();
+    return dataResponse;
   },
 );
 
