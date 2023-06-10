@@ -1,17 +1,17 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-// import Greeting from './Greeting';
+import { Routes, Route } from 'react-router-dom';
+import Greetings from './features/Greetings';
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Router>
-        <div>
-          <Route exact path="/" />
-        </div>
-      </Router>
-    </div>
+    <>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Greetings />} />
+        </Routes>
+      </div>
+    </>
   );
 }
 
